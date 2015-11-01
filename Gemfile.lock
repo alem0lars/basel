@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    basel (0.1.0)
+      colorize
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.7.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  basel!
+
+BUNDLED WITH
+   1.10.6
