@@ -1,4 +1,5 @@
 module Basel
+  # The current basel version informations.
   module Version
     # The current major version.
     MAJOR = 0

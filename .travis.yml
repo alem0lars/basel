@@ -1,0 +1,6 @@
+language: ruby
+rvm:
+  - 2.1.6
+  - 2.2.3
+  - rbx-2.5.5
+script: bundle exec rake verify

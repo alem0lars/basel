@@ -1,0 +1,14 @@
+# Project.
+/out
+/.yardoc
+/vendor
+
+# Bundler
+/.bundle
+
+# Vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+
+# Sublime text
+*.sublime-workspace
