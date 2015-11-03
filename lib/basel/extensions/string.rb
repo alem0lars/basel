@@ -4,12 +4,12 @@ class String
     ["!", "?", "."]
   end
 
-  def phrase_ended?(sign = nil)
-    Array(sign || phrase_end_signs).any? { |s| self.end_with? s }
+  def phrase_ended?(signs = nil)
+    Array(signs || phrase_end_signs).any? { |sign| self.end_with? sign }
   end
 
-  def end_phrase_with(sign)
+  def end_phrase_with!(sign)
     self.chop! while phrase_ended?
-    "#{self}#{sign}"
+    self << sign
   end
 end
