@@ -13,11 +13,13 @@ module Basel
     # end
 
     def log_warning(msg, ask_continue: true, **args)
-      continue = !ask_continue ||
-                 agree("A warning has been issues. Do you want to continue?")
-      pfx = args[:prefix] ? "⚠ #{args[:prefix]}" : nil
-      msg = msg.dup
-      msg.end_phrase_with!(".")
+      if !ask_continue
+        continue = true
+      else
+        continue = agree("A warning has been issues. Do you want to continue?")
+      end
+      pfx = "⚠".add_word args[:prefix]
+      msg = msg.dup.end_phrase_with!(".")
       msg << " " + HighLine.color("Aborting!", :underline) unless continue
 
       log msg, args.merge(color: :yellow, prefix: pfx)
@@ -25,7 +27,7 @@ module Basel
     end
 
     def log_error(msg, **args)
-      pfx = args[:prefix] ? "☠ #{args[:prefix]}" : nil
+      pfx = "☠".add_word args[:prefix]
       msg = msg.dup
       msg.end_phrase_with!(".")
       msg << " " + HighLine.color("Aborting!", :underline)

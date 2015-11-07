@@ -11,6 +11,6 @@ module Basel
     PATCH = 0
 
     # The version string, following the semvers conventions.
-    FULL = "#{MAJOR}.#{MINOR}.#{PATCH}"
+    FULL = [MAJOR, MINOR, PATCH].join(".")
   end
 end

@@ -2,56 +2,53 @@ require "spec_helper"
 
 describe Basel::Logger do
   include_context :logger
-
-  let(:pfx) { "COOL" }
-  let(:msg) { "You can't blame gravity for falling in love" }
+  include_context :args
 
   describe "#log_warning" do
-    after { $stdin = STDIN }
-
     context "when logging a warning without asking to continue" do
-      let(:expected_output) { HighLine.color(msg, :yellow) + "\n" }
-      subject { -> { logger.log_warning msg, ask_continue: false } }
-      it { is_expected.to output(expected_output).to_stdout }
+      let(:args) { [:warning, msg_0, ask_continue: false] }
+      it { expect { log(*args_with(ig_ex: false)) }.to_not raise_error }
+      it { expect_log(*args).to match_log_msg(msg_0) }
     end
 
     context "when asking to continue and user rejects" do
-      before { $stdin = StringIO.new("y") }
-      let(:expected_output) { HighLine.color("#{msg} #{abr}", :yellow) + "\n" }
-      subject { -> { logger.log_warning msg, ask_continue: true } }
-      it { is_expected.to output(expected_output).to_stdout.and raise_error }
+      let(:args) { [:warning, msg_0, ask_continue: true, input: "n"] }
+      it { expect { log(*args_with(ig_ex: false)) }.to raise_error(SystemExit) }
+      it { expect_log(*args).to match_log_msg(msg_abort) }
     end
 
     context "when asking to continue and user agrees" do
-      before { $stdin = StringIO.new("n") }
-      let(:expected_output) { HighLine.color(msg, :yellow) + "\n" }
-      subject { -> { logger.log_warning msg, ask_continue: true } }
-      it { is_expected.to output(expected_output).to_stdout }
+      let(:args) { [:warning, msg_0, ask_continue: true, input: "y"] }
+      it { expect { log(*args_with(ig_ex: false)) }.to_not raise_error }
+      it { expect_log(*args).to match_log_msg(msg_0) }
     end
   end
 
   describe "#log_error" do
-    subject { -> { logger.log_error msg } }
-    let(:expected_output) { HighLine.color("#{msg} #{abr}", :red) + "\n" }
-    it { is_expected.to output(expected_output).to_stdout.and raise_error }
+    let(:args) { [:error, msg_0] }
+    it { expect { log(*args_with(ig_ex: false)) }.to raise_error(SystemExit) }
+    it { expect_log(*args).to match_log_msg(msg_abort) }
   end
 
   describe "#format_msg" do
     context "when formatting a message without any option" do
-      subject { logger.format_msg msg }
-      it { is_expected.to eq(msg) }
+      subject { logger.format_msg msg_0 }
+      it { is_expected.to eq(msg_0) }
     end
+
     context "when formatting a message with a prefix" do
-      subject { logger.format_msg msg, prefix: pfx }
-      it { is_expected.to eq("[#{pfx}] #{msg}") }
+      subject { logger.format_msg msg_0, prefix: prefix }
+      it { is_expected.to eq("[#{prefix}] #{msg_0}") }
     end
+
     context "when formatting an indented message" do
-      subject { logger.format_msg msg, indent: 2 }
-      it { is_expected.to eq("\t\t#{msg}") }
+      subject { logger.format_msg msg_0, indent: 2 }
+      it { is_expected.to eq("\t\t#{msg_0}") }
     end
+
     context "when formatting a colored message" do
-      subject { logger.format_msg msg, color: :magenta }
-      it { is_expected.to eq(HighLine.color(msg, :magenta)) }
+      subject { logger.format_msg msg_0, color: :magenta }
+      it { is_expected.to eq(HighLine.color(msg_0, :magenta)) }
     end
   end
 end

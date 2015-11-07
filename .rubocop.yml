@@ -22,3 +22,12 @@ Style/EmptyLineBetweenDefs:
 # Use slashes on single-line regexes, and %r on multi-line regexes.
 Style/RegexpLiteral:
   EnforcedStyle: mixed
+
+# Allow unicode symbols in comments.
+AsciiComments:
+  Enabled: false
+
+# Allowed global variables.
+Style/GlobalVars:
+  AllowedVariables:
+    - $terminal # Used by the gem `highline`.
