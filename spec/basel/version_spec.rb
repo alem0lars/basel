@@ -7,7 +7,7 @@ describe Basel::Version do
 
   it "has positive components" do
     %i(MAJOR MINOR PATCH).each do |component|
-      expect(described_class.const_get(component)).to be_a(Integer).and be >= 0
+      expect(described_class.const_get component).to be_a(Integer).and be >= 0
     end
   end
 end

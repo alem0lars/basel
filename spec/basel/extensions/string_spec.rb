@@ -40,7 +40,7 @@ describe String do
   end
 
   describe "#delete_ansi_colors" do
-    subject { HighLine.color("foobar", :yellow, :underline) }
+    subject { HighLine.color "foobar", :yellow, :underline }
     it { expect(subject.delete_ansi_colors).to eq "foobar" }
   end
 end
