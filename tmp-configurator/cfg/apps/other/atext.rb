@@ -7,7 +7,7 @@ class ATextConfigurator < Configurator
     brew_install pkg: "atext", cask: true
   end
 
-  def configure
+  def configure_settings
     default msg:    "Set snippets editor font",
             domain: "com.trankynam.aText",
             name:   "DefaultSnippetEditorFont",
@@ -27,5 +27,9 @@ class ATextConfigurator < Configurator
             domain: "com.trankynam.aText",
             name:   "SyncDirectoryType",
             value:  1
+  end
+
+  def configure_startupitem
+    startupitem_add name: "/opt/homebrew-cask/Caskroom/atext/latest/aText.app"
   end
 end

@@ -7,6 +7,10 @@ class SystemConfigurator < Configurator
 
   def required_data() %i(hostname) end
 
+  def configure_startupitems
+    startupitem_remove name: :all # cleanup initial startup items
+  end
+
   def configure_dirs
     mkdir msg:  "Creating the user's temporary directory.",
           path: "~/Tmp"

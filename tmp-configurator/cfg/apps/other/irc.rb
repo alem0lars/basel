@@ -39,7 +39,7 @@ class IrcConfigurator < Configurator
     EOS
   end
 
-  def configure_preferences
+  def configure_settings
     default msg:    "Rejoin a channel after being kicked",
             domain: "com.codeux.apps.textual.plist",
             name:   "RejoinChannelOnLocalKick",

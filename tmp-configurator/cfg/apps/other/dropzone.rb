@@ -34,4 +34,8 @@ class DropzoneConfigurator < Configurator
             name:   "PlaySounds",
             value:  false
   end
+
+  def configure_startupitem
+    startupitem_add name: "/Applications/Dropzone 3.app"
+  end
 end

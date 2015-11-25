@@ -56,11 +56,14 @@ class CommandsExecutor
                 code: 'tell application "System Events" to make login item at end with properties {path:"' + item + '", hidden:' + hidden + '}'
   end
 
-  def startupitem_add(item: nil)
+  def startupitem_remove(item: nil)
     error "Missing `item`." if item.nil?
 
+    code = 'tell application "System Events" to delete'
+    code << item == :all ? 'every login item' : "delete login item \"#{item}\""
+
     applescript desc: "Remove Startup Item `#{item}`."
-                code: 'tell application "System Events" to delete login item "' + item + '"'
+                code: code
   end
 
   def startupitem_list

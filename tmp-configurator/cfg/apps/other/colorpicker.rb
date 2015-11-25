@@ -8,7 +8,7 @@ class ColorPickerConfigurator < Configurator
              name:   "Sip"
   end
 
-  def configure
+  def configure_settings
     default msg:    "Enable color history",
             domain: "com.ruiaureliano.Sip",
             name:   "SIP_PREFS_PREFFIX_3.2_SHOW_COLOR_HISTORY",
@@ -61,5 +61,9 @@ class ColorPickerConfigurator < Configurator
             domain: "com.ruiaureliano.Sip",
             name:   "SIP_PREFS_PREFFIX_3.2_FLOAT_DECIMAL",
             value:  2
+  end
+
+  def configure_startupitem
+    startupitem_add name: "/Applications/Sip.app"
   end
 end

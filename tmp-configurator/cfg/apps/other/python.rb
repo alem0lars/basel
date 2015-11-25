@@ -6,7 +6,7 @@ class PythonConfigurator < Configurator
   def install
     brew_install pkg: %w(pyenv)
     brew_install pkg: %w(pyenv-which-ext pyenv-virtualenv) # pyenv extensions.
-    pip_install pkg: %w(virtualenv ipython), user: true
+    pip_install pkg: %w(virtualenv ipython pylama pylama_pylint), user: true
   end
 
   # TODO: check zsh for:

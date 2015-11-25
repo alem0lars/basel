@@ -1,6 +1,6 @@
 require "engine/configurator"
 
-class NetToolsConfigurator < Configurator
+class NMapConfigurator < Configurator
   protected
 
   def install

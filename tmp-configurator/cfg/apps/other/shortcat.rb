@@ -8,7 +8,7 @@ class ShortcatConfigurator < Configurator
                  cask: true
   end
 
-  def configure
+  def configure_settings
     default msg:    "Don't stay activated after action.",
             domain: "com.sproutcube.Shortcat.plist",
             name:   "ModalModeEnabled",
@@ -29,5 +29,9 @@ class ShortcatConfigurator < Configurator
             domain: "com.sproutcube.Shortcat.plist",
             name:   "SUAutomaticallyUpdate",
             value:  false
+  end
+
+  def configure_startupitem
+    startupitem_add name: "/Applications/Shortcat.rb"
   end
 end

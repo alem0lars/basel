@@ -26,7 +26,7 @@ class DropzoneConfigurator < Configurator
             name:   "default.fontSize",
             value:  34
     default msg:    "Keystroke delay (length of time before the line breaks).",
-            domain: "net.stephendeken.KeyCastr",
+            domain: "net.stephendeken.KeyCastr",s
             name:   "default.keystrokeDelay",
             value:  0.851
     default msg:    "Fade duration (duration of the fade effect).",

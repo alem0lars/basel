@@ -8,7 +8,7 @@ class TransmitConfigurator < Configurator
              name:   "Transmit"
   end
 
-  def configure
+  def configure_settings
     default msg:    "Show Transmit icon in menu bar.",
             domain: "com.panic.Transmit",
             name:   "ShowTransmitMenu",
@@ -21,5 +21,9 @@ class TransmitConfigurator < Configurator
             domain: "com.panic.Transmit",
             name:   "ShowFileCount",
             value:  true
+  end
+
+  def configure_startupitem
+    startupitem_add name: "/Applications/Transmit.app/Contents/MacOS/TransmitMenu.app"
   end
 end

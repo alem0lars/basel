@@ -18,4 +18,8 @@ class LastpassConfigurator < Configurator
            cmd:    "open '/opt/homebrew-cask/Caskroom/lastpass/latest/LastPass Installer.app'",
            manual: true
   end
+
+  def configure_settings
+    # TODO
+  end
 end

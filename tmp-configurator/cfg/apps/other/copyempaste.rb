@@ -6,7 +6,7 @@ class XcodeConfigurator < Configurator
   def install
     appstore action: :install,
              name:   "Copy'em Paste"
-    custom msg:    "Manually install the Copy'em Paste helper from http://www.apprywhere.com/copyem-paste-helper.html",
+    custom msg:    "Manually install the Copy'em Paste helper from 'http://www.apprywhere.com/copyem-paste-helper.html'",
            manual: true
   end
 
@@ -23,5 +23,9 @@ class XcodeConfigurator < Configurator
             domain: "Copy-em-Paste",
             name:   "RejectDuplicates",
             value:  1
+  end
+
+  def configure_startupitem
+    startupitem_add name: "/Applications/Copy'em Paste.app"
   end
 end

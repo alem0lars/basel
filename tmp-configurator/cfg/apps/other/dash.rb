@@ -20,7 +20,11 @@ class DashConfigurator < Configurator
            manual: true
   end
 
-  def configure
+  def configure_settings
     # TODO
+  end
+
+  def configure_startupitem
+    startupitem_add name: "/Applications/Dash.app"
   end
 end

@@ -7,8 +7,4 @@ class GroovyConfigurator < Configurator
     brew_install pkg:  "groovy",
                  opts: %w(--with-invokedynamic)
   end
-
-  def configure
-    # TODO: export GROOVY_HOME=/usr/local/opt/groovy/libexec
-  end
 end
