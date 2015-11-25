@@ -22,6 +22,6 @@ class BartenderConfigurator < Configurator
   end
 
   def configure_startupitem
-    startupitem_add name: "/opt/homebrew-cask/Caskroom/atext/latest/aText.app"
+    startupitem_add name: "/Applications/Bartender 2.app"
   end
 end
