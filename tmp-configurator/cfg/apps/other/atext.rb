@@ -23,6 +23,10 @@ class ATextConfigurator < Configurator
             domain: "com.trankynam.aText",
             name:   "SyncEnabled",
             value:  true
+    default msg:    "Don't show dock icon",
+            domain: "com.trankynam.aText",
+            name:   "ShowDockIcon",
+            value:  false
     default msg:    "Sync snippets using iCloud.",
             domain: "com.trankynam.aText",
             name:   "SyncDirectoryType",
