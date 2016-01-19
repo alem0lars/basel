@@ -4,7 +4,7 @@ class OpenShiftConfigurator < Configurator
   protected
 
   def install
-    gem_install pkg: 'rhc', user: true
-    custom cmd: 'rhc setup'
+    gem_install pkg: "rhc"
+    custom msg: "Setup rhc", cmd: "rhc setup"
   end
 end

@@ -6,6 +6,7 @@ class TmuxConfigurator < Configurator
   def install
     brew_install pkg: "tmux"
     brew_install pkg: "wemux"
+    pip_install pkg: "tmuxp"
   end
 
   def configure

@@ -8,17 +8,22 @@ class AtomConfigurator < Configurator
     apm_install pkg: [
       # languages
       "language-restructuredtext",
+      "language-lua",
+      "language-docker",
       # autocomplete
       "autocomplete-plus",
       "autocomplete-python",
       # linter
       "linter",
       "linter-pylama",
+      "linter-luacheck",
+      "linter-docker",
       # aligner
       "aligner",
       "aligner-python",
       # python misc
       "python-tools",
+      "MagicPython",
       # minimap
       "minimap",
       "minimap-highlight-selected",
@@ -33,6 +38,8 @@ class AtomConfigurator < Configurator
       # VCS, diff
       "merge-conflicts",
       "split-diff",
+      # collaborative
+      "firepad",
       # colors
       "color-picker",
       "pigments",

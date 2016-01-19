@@ -5,6 +5,15 @@ class HardwareConfigurator < Configurator
 
   protected
 
+  def install_razer
+    if ask("Do you have any razer device?")
+      brew_install pkg: "synapse", cask: true
+      custom msg: "Perform login and update the application to the latest version",
+             open: "/Library/Application Support/Razer/RzUpdater",
+             manual: true
+    end
+  end
+
   def configure_keyboard
     default msg:   "Enable keyboard repeating.",
             name:  "ApplePressAndHoldEnabled",

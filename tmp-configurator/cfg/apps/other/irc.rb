@@ -36,6 +36,14 @@ class IrcConfigurator < Configurator
       address:  'Gemini.panicbnc.net/1338'
       password: 'echo alem0lars/smashthestack:$(lpass show --password "alem0lars @ gemini.panicbnc.net")'
       ssl: true
+
+    In every server check:
+    - 'General'
+      - 'Connect when textual opens'
+      - 'Perform reconnect on disconnect'
+      - 'Perform reconnect when awaking from sleep'
+    - 'Identity'
+      - 'Wait for identification before joining channels'
     EOS
   end
 

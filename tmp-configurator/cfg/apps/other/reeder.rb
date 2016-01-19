@@ -1,10 +1,10 @@
 require "engine/configurator"
 
-class OmniFocusConfigurator < Configurator
+class ReederConfigurator < Configurator
   protected
 
   def install
     appstore action: :install,
-             name:   "OmniFocus"
+             name:   "Reeder"
   end
 end
